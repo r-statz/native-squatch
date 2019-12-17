@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TextInput, View, Button, Alert, Image } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity } from 'react-native';
 
 export default class InputComponent extends Component {
   constructor(props) {
@@ -8,29 +8,58 @@ export default class InputComponent extends Component {
   }
 
   render() {
+    // const response = await fetch(`http://localhost:3000/${id}`, {
+    //   method: 'GET',
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //    body: JSON.stringify(newPartner)
+    // })
+    // let responseJSON = await response.json()
+    // console.log(responseJSON, "responseJSON")
+
     return (
-      <View>
-        <Image style={{ width: 500, height: 300 }} source={this.state.image} />
-        <Button
-          title="logBtn"
-          onPress={() => this.setState({ image: require('./assets/tank.png') })}
-        ></Button>
+      <View
+        style={{
+          width: '100%',
+          height: '100%',
+          justifyContent: 'center',
+          alignSelf: 'center',
+          alignContent: 'center',
+          alignItems: 'center'
+        }}
+      >
         <TextInput
-          style={{
-            borderColor: 'olive',
-            borderWidth: 3,
-            height: 40,
-            width: 300
-          }}
-          onChangeText={text => this.setState({ text })}
-          value={this.state.text}
+          placeholder={'Enter the username'}
+          style={{ height: 42, width: '80%', borderBottomWidth: 1 }}
         ></TextInput>
-        <Text style={{ padding: 10, fontSize: 42 }}>
-          {this.state.text
-            .split(' ')
-            .map(word => word && '🍕')
-            .join(' ')}
-        </Text>
+        <TextInput
+          placeholder={'Enter the password'}
+          style={{
+            height: 42,
+            width: '80%',
+            borderBottomWidth: 1,
+            marginTop: '5%'
+          }}
+        ></TextInput>
+        <View style={{ marginTop: '80%', width: '80%' }}>
+          <TouchableOpacity
+            style={{
+              borderWidth: 1,
+              height: 42,
+              width: '80%',
+              justifyContent: 'center',
+              alignSelf: 'center',
+              alignContent: 'center',
+              alignItems: 'center',
+              borderRadius: 40,
+              backgroundColor: 'black'
+            }}
+          >
+            <Text style={{ color: 'white' }}>Submit</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
