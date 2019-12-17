@@ -35,6 +35,7 @@ export default class InputComponent extends Component {
       let responseJSON = await response.json();
       if (responseJSON.loggedIn === true) {
         this.setState({ loggedIn: responseJSON.loggedIn });
+        this.setState({username: null, password: null})
       }
     }
     console.log(this.state.loggedIn);
